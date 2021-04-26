@@ -38,19 +38,27 @@ int GameManager::onExecute() {
 	actoresJuego.push_back(new Fantasma("Resources/Clyde.bmp", 220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	
 	actoresJuego.push_back(new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-
+	//lale las monedas a la pantalla
 	int posx = 0;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 26; i++)
 	{
-		posx = i * 50;
+		posx = i * 30;
+		for (int j=0;j<5;j++)
+		{
+			int posy = j * 30;
+			actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, posy, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		}
 		//monedas.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-		actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		
 	}
 	
 	for (int i = 0; i < 4; i++)
 	{
+		for (int j = 4; j < 6; j++)
+		{
+			actoresJuego.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (j * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		}
 		//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-		actoresJuego.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 	}
 	
 	for (int i = 0; i < actoresJuego.size(); i++) {

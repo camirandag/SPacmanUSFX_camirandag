@@ -79,5 +79,4 @@ public:
     void onCleanup();
     SDL_Texture* loadTexture(string path);   
 };
-
     

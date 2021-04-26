@@ -1,11 +1,10 @@
 ﻿  Fantasma.cpp
   Fruta.cpp
   GameManager.cpp
-C:\Users\PC\source\repos\camirandag\SPacmanUSFX_camirandag\PPacmanUSFX\GameManager.cpp(60,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\PC\source\repos\camirandag\SPacmanUSFX_camirandag\PPacmanUSFX\GameManager.cpp(68,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   GameObject.cpp
-  main.cpp
   Moneda.cpp
   Pacman.cpp
-  Texture.cpp
+  main.cpp
   Generando código...
   PPacmanUSFX.vcxproj -> C:\Users\PC\source\repos\camirandag\SPacmanUSFX_camirandag\x64\Debug\PPacmanUSFX.exe

@@ -56,6 +56,7 @@ public:
 
 	// Renderizar imagen
 	virtual void render();
+	 //SDL_Renderer* renderer = nullptr;
 	virtual void move() {};
 	virtual void update() { /*No se hace nada*/ };
 	virtual void mostrar() {};
