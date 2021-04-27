@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "GameObject.h"
-//#include "Texture.h"
+#include "Texture.h"
 #include "Moneda.h"
 #include "Fantasma.h"
 #include "Pacman.h"
@@ -25,19 +25,19 @@ private:
 	const string pathFantasma3 = "Resources/Inkey.bmp";
 	const string pathFantasma4 = "Resources/Pinky.bmp";
 	const string pathFruta = "Resources/Frutas.png";
-	const string pathMoneda = "Resources/Monedas01.jpg";
+	const string pathMoneda = "Resources/Monedas.png";
 	const string pathSuperMoneda = "Resources/Monedas03.jpg";
 	const string pathPared = "Resources/wall_sprite.bmp";
 
-	GameObject* pacmanTexture;
-	GameObject* fantasma1Texture;
-	GameObject* fantasma2Texture;
-	GameObject* fantasma3Texture;
-	GameObject* fantasma4Texture;
-	GameObject* frutaTexture;
-	GameObject* monedaTexture;
-	GameObject* superMonedaTexture;
-	GameObject* paredTexture;
+	Texture* pacmanTexture;
+	Texture* fantasma1Texture;
+	Texture* fantasma2Texture;
+	Texture* fantasma3Texture;
+	Texture* fantasma4Texture;
+	Texture* frutaTexture;
+	Texture* monedaTexture;
+	Texture* superMonedaTexture;
+	Texture* paredTexture;
 
 	int anchoPantalla;
 	int altoPantalla;

@@ -1,27 +1,27 @@
 #include "MapGenerator.h"
-//#include "GameObject.h"
+
 MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 {
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 
-	pacmanTexture = new GameObject();
+	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacman);
-	fantasma1Texture = new GameObject();
+	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
-	fantasma2Texture = new GameObject();
+	fantasma2Texture = new Texture();
 	fantasma2Texture->loadFromImage(pathFantasma2);
-	fantasma3Texture = new GameObject();
+	fantasma3Texture = new Texture();
 	fantasma3Texture->loadFromImage(pathFantasma3);
-	fantasma4Texture = new GameObject();
+	fantasma4Texture = new Texture();
 	fantasma4Texture->loadFromImage(pathFantasma4);
-	frutaTexture = new GameObject();
+	frutaTexture = new Texture();
 	frutaTexture->loadFromImage(pathFruta);
-	monedaTexture = new GameObject();
+	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
-	superMonedaTexture = new GameObject();
+	superMonedaTexture = new Texture();
 	superMonedaTexture->loadFromImage(pathSuperMoneda);
-	paredTexture = new GameObject();
+	paredTexture = new Texture();
 	paredTexture->loadFromImage(pathPared);
 }
 
@@ -58,17 +58,20 @@ bool MapGenerator::load(string path)
 				break;
 			case '.':
 				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(6);
 				break;
 			case 'p':
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				newObject->setParametrosAnimacion(2);
 				break;
 			case 'b':
 				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
 				break;
 			}
 
 			// If the object was created, add it to the vector
-			if (newObject != NULL)
+			if (newObject != nullptr)
 				vectorObjetosJuego.push_back(newObject);
 		}
 
@@ -81,7 +84,7 @@ bool MapGenerator::load(string path)
 	return true;
 }
 
-void MapGenerator::populate(std::vector<GameObject*>& _vectorObjetosJuegoGM)
+void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
 {
 	for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
 		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
