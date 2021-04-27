@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "GameObject.h"
-#include "Texture.h"
+//#include "Texture.h"
 
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
@@ -20,10 +20,10 @@ private:
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
 
-    Texture* monedaTexture;
+    GameObject* monedaTexture;
 
 public:
-    Moneda(Texture* _monedaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    Moneda(GameObject* _monedaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }

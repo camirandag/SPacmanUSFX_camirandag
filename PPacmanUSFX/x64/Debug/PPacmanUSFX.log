@@ -1,7 +1,7 @@
 ﻿  Fantasma.cpp
   Fruta.cpp
   GameManager.cpp
-C:\Users\PC\source\repos\SPacmanUSFX\PPacmanUSFX\GameManager.cpp(54,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\PC\source\repos\camirandag\SPacmanUSFX_camirandag\PPacmanUSFX\GameManager.cpp(17,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   GameObject.cpp
   main.cpp
   MapGenerator.cpp
@@ -9,4 +9,8 @@ C:\Users\PC\source\repos\SPacmanUSFX\PPacmanUSFX\GameManager.cpp(54,12): warning
   Pacman.cpp
   Texture.cpp
   Generando código...
-  PPacmanUSFX.vcxproj -> C:\Users\PC\Source\Repos\SPacmanUSFX\x64\Debug\PPacmanUSFX.exe
+Fantasma.obj : error LNK2019: símbolo externo "public: __cdecl GameObject::~GameObject(void)" (??1GameObject@@QEAA@XZ) sin resolver al que se hace referencia en la función "int `public: __cdecl Fantasma::Fantasma(class GameObject *,int,int,int,int,int,int,int)'::`1'::dtor$0" (?dtor$0@?0???0Fantasma@@QEAA@PEAVGameObject@@HHHHHHH@Z@4HA)
+Fruta.obj : error LNK2001: símbolo externo "public: __cdecl GameObject::~GameObject(void)" (??1GameObject@@QEAA@XZ) sin resolver
+GameManager.obj : error LNK2001: símbolo externo "public: static struct SDL_Renderer * GameObject::renderer" (?renderer@GameObject@@2PEAUSDL_Renderer@@EA) sin resolver
+GameObject.obj : error LNK2001: símbolo externo "public: static struct SDL_Renderer * GameObject::renderer" (?renderer@GameObject@@2PEAUSDL_Renderer@@EA) sin resolver
+C:\Users\PC\source\repos\camirandag\SPacmanUSFX_camirandag\x64\Debug\PPacmanUSFX.exe : fatal error LNK1120: 2 externos sin resolver

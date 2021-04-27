@@ -3,7 +3,7 @@
 #include <string>
 #include <SDL.h>
 #include "GameObject.h"
-#include "Texture.h"
+//#include "Texture.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
-	Texture* fantasmaTexture = nullptr;
+	GameObject* fantasmaTexture = nullptr;
 
 	int numeroFrame;
 	int contadorFrames;
@@ -38,7 +38,7 @@ public:
 	//Constructores y destructores
 	//Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(GameObject* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	//~Fantasma();
 	
 	//Metodos accesores

@@ -1,27 +1,27 @@
 #include "MapGenerator.h"
-
+//#include "GameObject.h"
 MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 {
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 
-	pacmanTexture = new Texture();
+	pacmanTexture = new GameObject();
 	pacmanTexture->loadFromImage(pathPacman);
-	fantasma1Texture = new Texture();
+	fantasma1Texture = new GameObject();
 	fantasma1Texture->loadFromImage(pathFantasma1);
-	fantasma2Texture = new Texture();
+	fantasma2Texture = new GameObject();
 	fantasma2Texture->loadFromImage(pathFantasma2);
-	fantasma3Texture = new Texture();
+	fantasma3Texture = new GameObject();
 	fantasma3Texture->loadFromImage(pathFantasma3);
-	fantasma4Texture = new Texture();
+	fantasma4Texture = new GameObject();
 	fantasma4Texture->loadFromImage(pathFantasma4);
-	frutaTexture = new Texture();
+	frutaTexture = new GameObject();
 	frutaTexture->loadFromImage(pathFruta);
-	monedaTexture = new Texture();
+	monedaTexture = new GameObject();
 	monedaTexture->loadFromImage(pathMoneda);
-	superMonedaTexture = new Texture();
+	superMonedaTexture = new GameObject();
 	superMonedaTexture->loadFromImage(pathSuperMoneda);
-	paredTexture = new Texture();
+	paredTexture = new GameObject();
 	paredTexture->loadFromImage(pathPared);
 }
 

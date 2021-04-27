@@ -5,7 +5,7 @@
 #include <SDL.h>
 
 #include "GameObject.h"
-#include "Texture.h"
+//#include "Texture.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
-	Texture* textura;
+	GameObject* textura;
 
 	int numeroFrame;
 	int contadorFrames;
@@ -38,7 +38,7 @@ public:
 public:
 	//Constructores y destructores
 	//Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Pacman(GameObject* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	//~Pacman();
 

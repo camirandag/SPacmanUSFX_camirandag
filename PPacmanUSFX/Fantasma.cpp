@@ -1,6 +1,6 @@
 #include "Fantasma.h"
 #include <iostream>
-
+#include "GameObject.h"
 using namespace std;
 
 //Fantasma::Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron):
@@ -26,12 +26,12 @@ Fantasma::Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int 
 	numeroFrame = 0;
 	contadorFrames = 0;
 	velocidadPatron = _velocidadPatron;
-	fantasmaTexture = new Texture();
+	fantasmaTexture = new GameObject();
 	fantasmaTexture->loadFromImage(path.c_str());
 }
 
 
-Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+Fantasma::Fantasma(GameObject* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	// Inicializa propiedade de de pacman

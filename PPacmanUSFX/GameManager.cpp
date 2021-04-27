@@ -6,16 +6,6 @@ GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
-	/*gPacmanTexture = nullptr;
-	gMonedaTexture = nullptr;
-
-	pacmanTextura = nullptr;*/
-
-	/*for (int i = 0; i <= 3; i++)
-	{
-		gFrutasTextures[i] = nullptr;
-	}*/
-
 	juego_en_ejecucion = true;
 }
 
@@ -23,33 +13,6 @@ int GameManager::onExecute() {
     if (onInit() == false) {
         return -1;
     }
-	
-	//pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	//pacman = new Pacman(pacmanTextura, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	//actoresJuego.push_back(new Pacman(pacmanTextura, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	/*fantasma = new Fantasma(gRenderer, gFantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,  5);
-	fruta = new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
-	*/
-	//actoresJuego.push_back(new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	/*actoresJuego.push_back(new Fantasma(fantasma1Texture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma(fantasma2Texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma("Resources/Clyde.bmp", 220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	
-	actoresJuego.push_back(new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));*/
-
-	//int posx = 0;
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	posx = i * 50;
-	//	//monedas.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//	actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//}
-	//
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//	actoresJuego.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//}
 	
 	srand(time(NULL));
 
@@ -144,7 +107,7 @@ bool GameManager::onInit() {
 				success = false;
 			}*/
 
-			Texture::renderer = gRenderer;
+			GameObject::renderer = gRenderer;
 
 			//pacmanTextura = new Texture();
 			//pacmanTextura->loadFromImage("Resources/PacMan.bmp");

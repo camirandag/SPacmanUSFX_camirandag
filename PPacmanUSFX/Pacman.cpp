@@ -12,7 +12,7 @@
 //	pacmanTexture = _pacmanTexture;
 //}
 
-Pacman::Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+Pacman::Pacman(GameObject* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	// Inicializa propiedade de de pacman
