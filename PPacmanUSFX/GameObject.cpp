@@ -15,4 +15,3 @@ GameObject::GameObject(int _posicionX, int _posicionY, int _ancho, int _alto, in
 }
 
 void GameObject::render() {};
-//miau: listo para trabajar con este repositorio

@@ -25,6 +25,7 @@ protected:
 
 	// Si el objeto es visible
 	bool visible;
+	bool eliminar;
 
 	Texture* texturaObjeto;
 public:
@@ -56,9 +57,9 @@ public:
 
 	// Renderizar imagen
 	virtual void render();
-	 //SDL_Renderer* renderer = nullptr;
 	virtual void move() {};
 	virtual void update() { /*No se hace nada*/ };
 	virtual void mostrar() {};
+	virtual void handleEvent(SDL_Event& e) {};
 };
 
