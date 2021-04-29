@@ -20,7 +20,7 @@ private:
 public:
     Pared(Texture* _paredTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
     int getValor() { return valor; }
-    PODER_PARED getTipoPoderMoneda() { return tipoPoderPared; }
+    PODER_PARED getTipoPoderPared() { return tipoPoderPared; }
     int getTiempoPoderPared() { return tiempoPoderPared; }
 
     void setValor(int _valor) { valor = _valor; }

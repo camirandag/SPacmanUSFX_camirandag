@@ -64,10 +64,19 @@ bool MapGenerator::load(string path)
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				newObject->setParametrosAnimacion(2);
 				break;
-			case 'b':
+			case 'a':
 				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
-				break;
+			case 'b':
+				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+			case 'c':
+				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+			case 'd':
+				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+
 			}
 
 			// If the object was created, add it to the vector
