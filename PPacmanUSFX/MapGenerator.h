@@ -10,7 +10,7 @@
 #include "Fantasma.h"
 #include "Pacman.h"
 #include "Fruta.h"
-
+#include "Pared.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ private:
 	const string pathFruta = "Resources/Frutas.png";
 	const string pathMoneda = "Resources/Monedas.png";
 	const string pathSuperMoneda = "Resources/Monedas03.jpg";
-	const string pathPared = "Resources/wall_sprite.bmp";
+	const string pathPared = "Resources/wall.bmp";
 
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
