@@ -16,6 +16,8 @@
 #include "TileGraph.h"
 #include "TextureManager.h"
 #include "TextureAnimation.h"
+#include "Jugador.h"
+#include "Ladrillo.h"
 using namespace std;
 
 class MapGenerator

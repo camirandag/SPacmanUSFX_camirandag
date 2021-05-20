@@ -7,7 +7,7 @@ class TextureManager
 {
 private:
 	map<string, Texture*> mapTexturas;
-
+	const string pathJugador = "Resources/Jugador.bmp";
 	const string pathPacman = "Resources/PacMan.bmp";
 	const string pathFantasma1 = "Resources/Blinky.bmp";
 	const string pathFantasma2 = "Resources/Clyde.bmp";
@@ -17,6 +17,7 @@ private:
 	const string pathMoneda = "Resources/Monedas02.jpg";
 	const string pathSuperMoneda = "Resources/Monedas03.jpg";
 	const string pathPared = "Resources/wall.bmp";
+	const string pathLadrillo = "Resources/Ladrillo.bmp";
 
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
@@ -27,6 +28,8 @@ private:
 	Texture* monedaTexture;
 	Texture* superMonedaTexture;
 	Texture* paredTexture;
+	Texture* jugadorTexture;
+	Texture* ladrilloTexture;
 public:
 	TextureManager();
 	~TextureManager();

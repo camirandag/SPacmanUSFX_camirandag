@@ -14,7 +14,7 @@ public:
 	static TileGraph* tileGraph;
 	static int numeroObjetosCreados;
 
-protected:
+protected://privado para exterior, publico para clases hijas
 	// Posicion en el eje X y Y
 	int idObjeto;
 	int posicionX;

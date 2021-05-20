@@ -10,6 +10,6 @@ xxxxx..........xxxxx
 xxxxx.xabcd  x.xxxxx
 xxxxx.xxxxxxxx.xxxxx
 x..................x
-x.xxxxxxxxxxxxxxxx.x
-x........p.........x
+x.xxllllllllllxxxx.x
+x........p........jx
 xxxxxxxxxxxxxxxxxxxx

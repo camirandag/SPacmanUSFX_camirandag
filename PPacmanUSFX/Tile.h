@@ -6,6 +6,8 @@ class Fantasma;
 class Fruta;
 class Moneda;
 class Pared;
+class Jugador;
+class Ladrillo;
 
 class Tile
 {
@@ -15,6 +17,8 @@ private:
 	Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
+	Jugador* jugador;
+	Ladrillo* ladrillo;
 
 	int posicionX;
 	int posicionY;
@@ -26,7 +30,8 @@ public:
 public:
 	Tile();
 	Tile(int _x, int _y);
-
+	Ladrillo* getLadrillo() { return ladrillo; }
+	Jugador* getJugador() { return jugador; }
 	Pacman* getPacman() { return pacman; }
 	Fantasma* getFantasma() { return fantasma; }
 	Fruta* getFruta() { return fruta; }
@@ -34,7 +39,8 @@ public:
 	Pared* getPared() { return pared; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
-
+	void setLadrillo(Ladrillo* _ladrillo) { ladrillo = _ladrillo; }
+	void setJugador(Jugador* _jugador) { jugador = _jugador; }
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
 	void setFantasma(Fantasma* _fantasma) { fantasma = _fantasma; }
 	void setFruta(Fruta* _fruta){ fruta = _fruta; }
