@@ -2,9 +2,6 @@
 
 TextureManager::TextureManager()
 {
-	jugadorTexture = new Texture();
-	jugadorTexture->loadFromImage(pathJugador);
-	addTexture("jugador", jugadorTexture);
 	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacman);
 	addTexture("pacman", pacmanTexture);
@@ -32,9 +29,6 @@ TextureManager::TextureManager()
 	paredTexture = new Texture();
 	paredTexture->loadFromImage(pathPared);
 	addTexture("pared", paredTexture);
-	ladrilloTexture = new Texture();
-	ladrilloTexture->loadFromImage(pathLadrillo);
-	addTexture("ladrillo", ladrilloTexture);
 }
 
 TextureManager::~TextureManager() {

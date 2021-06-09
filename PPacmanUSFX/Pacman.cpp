@@ -1,5 +1,17 @@
 #include <stdio.h>
 #include "Pacman.h"
+
+//Pacman* Pacman::instancia = nullptr;
+//
+//Pacman* Pacman::crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) {
+//	if (instancia == nullptr) {
+//		instancia = new Pacman(_tile, _texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _velocidadPatron);
+//	}
+//	
+//	return instancia;
+//
+//}
+
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
@@ -28,6 +40,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionY = 0;
 	}
 
+
 	direccionActual = MOVE_RIGHT;
 	direccionSiguiente = MOVE_RIGHT;
 
@@ -38,7 +51,15 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	velocidadPatron = _velocidadPatron;
 	posicionXEnTextura = 0;
 	posicionYEnTextura = 0;
+	energia = 5;
 }
+
+void Pacman::restarEnergia() {
+	if (energia > 0) {
+		energia--;
+	}
+}
+
 
 void Pacman::setTile(Tile* _tileNuevo) {
 	
@@ -63,19 +84,20 @@ void Pacman::handleEvent(SDL_Event* event)
 		switch (event->key.keysym.sym)
 		{
 			// Move up
-		case SDLK_UP: direccionSiguiente = MOVE_UP; break;
+			case SDLK_UP:
+				direccionSiguiente = MOVE_UP; break;
 
 			// Move down
-		//case SDLK_DOWN:
-		case SDLK_DOWN: direccionSiguiente = MOVE_DOWN; break;
+			case SDLK_DOWN:
+				direccionSiguiente = MOVE_DOWN; break;
 
 			// Move left
-		//case SDLK_LEFT:
-		case SDLK_LEFT: direccionSiguiente = MOVE_LEFT; break;
+			case SDLK_LEFT:
+				direccionSiguiente = MOVE_LEFT; break;
 
 			// Move right
-		//case SDLK_RIGHT:
-		case SDLK_RIGHT: direccionSiguiente = MOVE_RIGHT; break;
+			case SDLK_RIGHT:
+				direccionSiguiente = MOVE_RIGHT; break;
 		}
 	}
 }
@@ -121,25 +143,26 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 void Pacman::update()
 {
-	//
-	//// Check for collision with point
-	//// NOTE: Should this be nextTile?
-	//if (currTile != NULL && currTile->GetPoint() != NULL) {
-	//	SDL_Rect eatingHole = {
-	//		position.x + Point::Margin,
-	//		position.y + Point::Margin,
-	//		Point::Width,
-	//		Point::Height,
-	//	};
+	// Revisar colisiones con monedas
+	// NOTE: Should this be nextTile?
+	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		SDL_Rect* eatingHole = new SDL_Rect({
+			posicionX /*+ Point::Margin*/,
+			posicionY /*+ Point::Margin*/,
+			ancho,
+			alto,
+		});
 
-	//	if (CheckForCollision(eatingHole, nextTile->GetPoint()->GetCollider())) {
-	//		nextTile->GetPoint()->Delete();
-	//	}
-	//}
+		if (revisarColision(eatingHole, tileSiguiente->getMoneda()->getColisionador())) {
+			tileSiguiente->getMoneda()->deleteGameObject();
+		}
+	}
+
 	// Animacion de pacman
 	if (enMovimiento) {
 		GameObject::update();
 	}
+
 	// Cambiar de tile/direccion
 	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
 		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
@@ -168,15 +191,23 @@ void Pacman::update()
 			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
+
+
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
+
 		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
+
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 	}
 }
+
 void Pacman::render()
 {
 	SDL_Rect* cuadroAnimacion = new SDL_Rect();
+
 	switch (direccionActual){
 	case MOVE_UP:
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
@@ -191,5 +222,12 @@ void Pacman::render()
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
+
 	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+}
+
+void Pacman::deleteGameObject()
+{
+	GameObject::deleteGameObject();
+	tileActual->setPacman(nullptr);
 }

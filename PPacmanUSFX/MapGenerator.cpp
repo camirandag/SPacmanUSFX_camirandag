@@ -1,7 +1,8 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* _factory)
 {
+	factory = _factory;
 	tileGraph = _tileGraph;
 	textureManager = _textureManager;
 	anchoPantalla = _anchoPantalla;
@@ -46,7 +47,9 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+
+				//objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
@@ -54,33 +57,19 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'b':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma2"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma2"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 2);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'c':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 2);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'd':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'j':
-				objetoNuevo = new Jugador(tileNuevo, textureManager->getTexture("jugador"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
-			case 'l':
-				objetoNuevo = new Ladrillo(tileNuevo, textureManager->getTexture("ladrillo"), x * Tile::altoTile, y * Tile::altoTile, 25, 25, anchoPantalla, altoPantalla);
-				objetoNuevo->setParametrosAnimacion(1);
-				break;
 			}
-			//switch (chars[x])
-			//{
-			//case 'l':
-			//	objetoNuevo = new Ladrillo(tileNuevo, textureManager->getTexture("ladrillo"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-			//	objetoNuevo->setParametrosAnimacion(1);
-			//	break;
-			//}
+
 			// If the object was created, add it to the vector
 			if (objetoNuevo != nullptr) {
 				vectorObjetosJuego.push_back(objetoNuevo);
