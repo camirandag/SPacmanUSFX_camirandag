@@ -1,29 +1,17 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 #include <SDL.h>
 
 #include "GameObject.h"
 #include "Texture.h"
-#include "Tile.h"
-#include "TileGraph.h"
-#include "MoveDirection.h"
-#include "TextureAnimation.h" 
-#include "Moneda.h"
 
 using namespace std;
 
 class Pacman: public GameObject
 {
-protected:
-	Tile* tileActual;
-	Tile* tileSiguiente;
-
-	MoveDirection direccionActual;
-	MoveDirection direccionSiguiente;
-		
+private:
 	// Velocidad en eje X e Y
 	int velocidadX;
 	int velocidadY;
@@ -31,21 +19,26 @@ protected:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
+	Texture* textura;
+
+	int numeroFrame;
+	int contadorFrames;
+	const int framesMovimiento = 2;
+
 	int posicionXEnTextura;
 	int posicionYEnTextura;
+public:
+	//// Renderizador de la ventana
+	//SDL_Renderer* renderer = nullptr;
 
-	TextureAnimation* texturaAnimacion;
-	//static Pacman* instancia;
-
-	int energia;
+	//// Textura grafica de pacman;
+	//SDL_Texture* pacmanTexture = nullptr;
 
 public:
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-
-//	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-
 	//Constructores y destructores
-	
+	//Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+
 	//~Pacman();
 
 	//Metodos accesores
@@ -53,29 +46,21 @@ public:
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
-	int getEnergia() { return energia; }
 
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
-	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-	void setEnergia(int _energia) { energia = _energia; }
 
 	// Metodos varios
-	bool tratarDeMover(MoveDirection _direccionNueva);
-	void restarEnergia();
 
 	// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;
+	void handleEvent(SDL_Event& e);
 	// Mover pacman
-	void update() override;
+	void move();
 	// Renderizar imagen pacman
-	void render() override;
-	//void update();
-	void deleteGameObject() override;
+	void render();
+
+	void update();
 
 };
 

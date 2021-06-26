@@ -13,11 +13,6 @@
 #include "Fruta.h"
 #include "Moneda.h"
 #include "Texture.h"
-#include "MapGenerator.h"
-#include "TileGraph.h"
-#include "TextureManager.h"
-#include "FactoryPacmanClasico.h"
-#include "FactoryPacmanGalactico.h"
 
 using namespace std;
 
@@ -36,24 +31,53 @@ private:
 
     //The window renderer
     SDL_Renderer* gRenderer;
-   
-    vector<GameObject*> actoresJuego;
-    list<GameObject*> lactoresJuego;
-    MapGenerator* generadorNivelJuego;
-    TextureManager* textureManager;
-    Factory* tipoFabrica;
 
-    GameManager();
-    static GameManager* instancia;
+    //The surface contained by the window
+    SDL_Surface* gScreenSurface;
+
+    //The images we will load and show on the screen
+    SDL_Texture* gPacmanTexture;
+    /*SDL_Texture* gFantasmaTexture;
+    SDL_Texture* gFantasmaTexture;*/
+    //SDL_Texture* gFrutasTextures[3];
+    vector<SDL_Texture*> gFrutasTextures;
+    SDL_Texture* gMonedaTexture;
+    SDL_Texture* gSuperMonedaTexture;
+
+    Texture* pacmanTextura;
+    Texture* fantasma1Texture = nullptr;
+    Texture* fantasma2Texture = nullptr;
+    Texture* fantasma3Texture = nullptr;
+
+    
+
+    /*
+    SDL_Texture* gFruta01Texture;
+    SDL_Texture* gFruta02Texture;
+    SDL_Texture* gFruta03Texture;
+    SDL_Texture* gFruta04Texture;
+    */
+
 public:
-    static GameManager* crearInstancia();
-
+    Pacman* pacman;
+    
+    //vector<Fantasma*> fantasma;
+    Fantasma* fantasma;
+    Fantasma* fantasma1;
+    Fruta* fruta;
+    vector<Moneda*> monedas;
+    vector<Moneda*> superMonedas;
+    vector<GameObject*> actoresJuego;
+public:
+    GameManager();
     int onExecute();
+    
     bool onInit();
+
     void onEvent(SDL_Event* Event);
     void onLoop();
     void onRender();
     void onCleanup();
+    SDL_Texture* loadTexture(string path);   
 };
-
     

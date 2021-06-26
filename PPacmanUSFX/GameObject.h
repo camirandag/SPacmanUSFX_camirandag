@@ -5,15 +5,10 @@
 
 using namespace std;
 
-class TileGraph;
-
 class GameObject
 {
 public:
 	string nombre;
-	static TileGraph* tileGraph;
-	static int numeroObjetosCreados;
-
 protected:
 	// Posicion en el eje X y Y
 	int idObjeto;
@@ -30,22 +25,14 @@ protected:
 
 	// Si el objeto es visible
 	bool visible;
-	bool eliminar;
-	bool enMovimiento;
 
-	// Textura para representacion grafica del objeto
-	Texture* textura;
+	Texture* texturaObjeto;
+public:
+	static int numeroObjetosCreados;
 
-	int numeroFrame;
-	int contadorFrames;
-	int framesMovimiento;
-
-	SDL_Rect* colisionador;
-	
 public:
 	//Constructores y destructores
-	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
-	~GameObject() {};
+	GameObject(int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 
 	//Metodos accesores
 	int getIdObjeto() { return idObjeto; }
@@ -56,8 +43,6 @@ public:
 	int getAnchoPantalla() { return anchoPantalla; }
 	int getAltoPantalla() { return altoPantalla; }
 	bool getVisible() { return visible; }
-	bool getEliminar() { return eliminar; }
-	bool getEnMovimiento() { return enMovimiento; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
@@ -66,21 +51,14 @@ public:
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
-	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
-	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 
 	// Metodos varios
-	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
-	virtual SDL_Rect* getColisionador() { return colisionador; }
-	bool revisarColision(const SDL_Rect* _otroColisionador);
-	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
-
 
 	// Renderizar imagen
 	virtual void render();
-	virtual void update();
-	virtual void handleEvent(SDL_Event* event) {};
-	virtual void deleteGameObject() { eliminar = true; }
-	virtual void free(){};
+	 //SDL_Renderer* renderer = nullptr;
+	virtual void move() {};
+	virtual void update() { /*No se hace nada*/ };
+	virtual void mostrar() {};
 };
 
