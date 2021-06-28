@@ -46,7 +46,7 @@ int GameManager::onExecute() {
 	for (int i = 0; i < 25; i++)
 	{
 		posx = i * 30;
-		for (int j=0;j<8;j++)
+		for (int j=0;j<2;j++)
 		{
 			int posy = j * 30;
 			actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, posy, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
