@@ -45,30 +45,29 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	velocidadPatron = _velocidadPatron;
 	fantasmaTexture = _fantasmaTexture;
 }
-//void Fantasma::move() {
-//	posicionXDestino = 1 + rand() % (getAnchoPantalla()-getAncho());
-//	posicionYDestino = 1 + rand() % (getAnchoPantalla() - getAncho());
-//	incrementoPosicionX = 1;
-//	incrementoPosicionY = 1;
-//	for (int i=0; i <= 2;i++) {
-//		if (i==1) {
-//			while(getPosicionX()<getAnchoPantalla()) {
-//				setPosicionX(getPosicionX() + 1);
-//			}
-//			setPosicionX(25);
-//			cout << 4;
-//		}
-//		if (i == 2) {
-//			while (getPosicionY() < getAltoPantalla()) {
-//				setPosicionY(getPosicionY() + 1);
-//
-//			}
-//			setPosicionY(25);
-//		}
-//	}
-//}
-//
 
+void Fantasma::move() {
+	posicionXDestino = 1 + rand() % (getAnchoPantalla()-getAncho());
+	//posicionYDestino = 1 + rand() % (getAndchoPantalla() - getAncho());
+	incrementoPosicionX = 1;
+	incrementoPosicionY = 1;
+	for (int i=0; i <= 3;i++) {
+		if (getPosicionX() >= getAnchoPantalla()) {
+			for (int j = 0; j < 3; j++) {
+				setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
+				cout << getPosicionY();
+				
+			}
+			setPosicionX(25);
+			i = 0;
+			cout << "hola";
+		}
+		else {
+			setPosicionX(getPosicionX() + incrementoPosicionX * velocidadX);
+		}
+	}
+}
+/*
 void Fantasma::move()
 {
 	if (incrementoPosicionX > 0) {
@@ -101,36 +100,36 @@ void Fantasma::move()
 		}
 	}
 
-	//if (incrementoPosicionY > 0) {
-	//	if (getPosicionY() >= posicionYDestino || (getPosicionY() + getAlto()) >= getAltoPantalla()) {
-	//		posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
-	//		if (getPosicionY() > posicionYDestino) {
-	//			incrementoPosicionY = -1;
-	//		}
-	//		else {
-	//			incrementoPosicionY = 1;
-	//		}
-	//	}
-	//	else {
-	//		setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
-	//	}
-	//}
-	//else {
-	//	if (getPosicionY() <= posicionYDestino || (getPosicionY() <= 0)) {
-	//		posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
-	//		if (getPosicionY() > posicionYDestino) {
-	//			incrementoPosicionY = -1;
-	//		}
-	//		else {
-	//			incrementoPosicionY = 1;
-	//		}
-	//	}
-	//	else {
-	//		setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
-	//	}
-	//}
+	if (incrementoPosicionY > 0) {
+		if (getPosicionY() >= posicionYDestino || (getPosicionY() + getAlto()) >= getAltoPantalla()) {
+			posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
+			if (getPosicionY() > posicionYDestino) {
+				incrementoPosicionY = -1;
+			}
+			else {
+				incrementoPosicionY = 1;
+			}
+		}
+		else {
+			setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
+		}
+	}
+	else {
+		if (getPosicionY() <= posicionYDestino || (getPosicionY() <= 0)) {
+			posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
+			if (getPosicionY() > posicionYDestino) {
+				incrementoPosicionY = -1;
+			}
+			else {
+				incrementoPosicionY = 1;
+			}
+		}
+		else {
+			setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
+		}
+	}
 }
-
+*/
 void Fantasma::render()
 {
 	SDL_Rect renderQuad = { 25 * numeroFrame, 25, getAncho(), getAlto() };
