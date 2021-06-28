@@ -9,6 +9,7 @@ using namespace std;
 
 class Fantasma : public GameObject{
 private:
+	int cont;
 	//Velocidad en eje X y Y
 	int velocidadX;
 	int velocidadY;
@@ -42,7 +43,6 @@ public:
 	//~Fantasma();
 	
 	//Metodos accesores
-
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }
