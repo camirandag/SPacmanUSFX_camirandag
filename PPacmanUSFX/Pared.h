@@ -1,8 +1,37 @@
 #pragma once
-#include <SDL.h>
 #include "GameObject.h"
+#include <SDL.h>
 #include "Texture.h"
+enum PODER_PARED {
+    PODER_PARED_NINGUNO,
+    PODER_PARED_CRECIMIENTO,
+    PODER_PARED_COMER,
+    PODER_PARED_VELOCIDAD,
+    PODER_PARED_SALTO
+};
+class Pared :
+    public GameObject
+{
+private:
+    int valor;
+    PODER_PARED tipoPoderPared;
+    int tiempoPoderPared;
 
+public:
+    Pared(Texture* _paredTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    int getValor() { return valor; }
+    PODER_PARED getTipoPoderPared() { return tipoPoderPared; }
+    int getTiempoPoderPared() { return tiempoPoderPared; }
+
+    void setValor(int _valor) { valor = _valor; }
+    void setTipoPoderPared(PODER_PARED _poderPared) { tipoPoderPared = _poderPared; }
+    void setTiempoPoderPared(int _tiempoPoderPared) { tiempoPoderPared = _tiempoPoderPared; }
+
+    //void render();
+};
+
+
+/*
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
     PODER_MONEDA_CRECIMIENTO,
@@ -34,4 +63,4 @@ public:
     //void render();
 
 };
-
+*/
