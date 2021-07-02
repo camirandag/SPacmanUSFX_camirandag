@@ -1,28 +1,11 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla)
 {
+	tileGraph = _tileGraph;
+	textureManager = _textureManager;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-
-	pacmanTexture = new Texture();
-	pacmanTexture->loadFromImage(pathPacman);
-	fantasma1Texture = new Texture();
-	fantasma1Texture->loadFromImage(pathFantasma1);
-	fantasma2Texture = new Texture();
-	fantasma2Texture->loadFromImage(pathFantasma2);
-	fantasma3Texture = new Texture();
-	fantasma3Texture->loadFromImage(pathFantasma3);
-	fantasma4Texture = new Texture();
-	fantasma4Texture->loadFromImage(pathFantasma4);
-	frutaTexture = new Texture();
-	frutaTexture->loadFromImage(pathFruta);
-	monedaTexture = new Texture();
-	monedaTexture->loadFromImage(pathMoneda);
-	superMonedaTexture = new Texture();
-	superMonedaTexture->loadFromImage(pathSuperMoneda);
-	paredTexture = new Texture();
-	paredTexture->loadFromImage(pathPared);
 }
 
 bool MapGenerator::load(string path)
@@ -48,40 +31,60 @@ bool MapGenerator::load(string path)
 		vector<char> chars(line.begin(), line.end());
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
-			GameObject* newObject = nullptr;
+			GameObject* objetoNuevo = nullptr;
+			Tile* tileNuevo = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
 			case 'x':
-				newObject = new Pared(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared"), x * Tile::altoTile, y * Tile::altoTile, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(1);
 				break;
 			case '.':
-				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(6);
+				objetoNuevo = new Moneda(tileNuevo, textureManager->getTexture("moneda"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				newObject->setParametrosAnimacion(2);
+				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
-				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
 			case 'b':
-				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma2"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
 			case 'c':
-				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
 			case 'd':
-				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
-
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
+			case 'j':
+				objetoNuevo = new Jugador(tileNuevo, textureManager->getTexture("jugador"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo->setParametrosAnimacion(2);
+				break;
+			case 'l':
+				objetoNuevo = new Ladrillo(tileNuevo, textureManager->getTexture("ladrillo"), x * Tile::altoTile, y * Tile::altoTile, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(1);
+				break;
 			}
-
+			//switch (chars[x])
+			//{
+			//case 'l':
+			//	objetoNuevo = new Ladrillo(tileNuevo, textureManager->getTexture("ladrillo"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+			//	objetoNuevo->setParametrosAnimacion(1);
+			//	break;
+			//}
 			// If the object was created, add it to the vector
-			if (newObject != nullptr)
-				vectorObjetosJuego.push_back(newObject);
+			if (objetoNuevo != nullptr) {
+				vectorObjetosJuego.push_back(objetoNuevo);
+			}
 		}
 
 		y++;
@@ -93,9 +96,14 @@ bool MapGenerator::load(string path)
 	return true;
 }
 
-void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
+void MapGenerator::populate(vector<GameObject*> &_vectorObjetosJuegoGM)
 {
-	for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
+	/*for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
 		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+	}*/
+
+	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
+		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}
+
 }

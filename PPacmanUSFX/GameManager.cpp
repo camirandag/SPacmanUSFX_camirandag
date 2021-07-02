@@ -14,9 +14,12 @@ int GameManager::onExecute() {
         return -1;
     }
 		
-	srand(time(NULL));
+	srand(time(nullptr));
 
-	generadorNivelJuego = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
+	TileGraph tileGraphGM(20, 15);
+	textureManager = new TextureManager();
+	GameObject::tileGraph = &tileGraphGM;
+	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 
@@ -26,15 +29,9 @@ int GameManager::onExecute() {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
-				actoresJuego[i]->handleEvent(Event);
+				actoresJuego[i]->handleEvent(&Event);
 			}
         }
-		
-		for (int i = 0; i < actoresJuego.size(); i++) {
-			actoresJuego[i]->move();
-			actoresJuego[i]->mostrar();
-		}
-
 
 		////Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);

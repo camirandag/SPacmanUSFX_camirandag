@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<vector>
+#include<list>
 #include<string>
 #include <fstream>
 
@@ -11,40 +12,26 @@
 #include "Pacman.h"
 #include "Fruta.h"
 #include "Pared.h"
-
-
+#include "Tile.h"
+#include "TileGraph.h"
+#include "TextureManager.h"
+#include "TextureAnimation.h"
+#include "Jugador.h"
+#include "Ladrillo.h"
 using namespace std;
 
 class MapGenerator
 {
 private:
-	
-	vector<GameObject*> vectorObjetosJuego;
+	list<GameObject*> vectorObjetosJuego;
+	TileGraph* tileGraph;
+	TextureManager* textureManager;
 
-	const string pathPacman = "Resources/PacMan.bmp";
-	const string pathFantasma1 = "Resources/Blinky.bmp";
-	const string pathFantasma2 = "Resources/Clyde.bmp";
-	const string pathFantasma3 = "Resources/Inkey.bmp";
-	const string pathFantasma4 = "Resources/Pinky.bmp";
-	const string pathFruta = "Resources/Frutas.png";
-	const string pathMoneda = "Resources/Monedas.png";
-	const string pathSuperMoneda = "Resources/Monedas03.jpg";
-	const string pathPared = "Resources/wall.bmp";
-
-	Texture* pacmanTexture;
-	Texture* fantasma1Texture;
-	Texture* fantasma2Texture;
-	Texture* fantasma3Texture;
-	Texture* fantasma4Texture;
-	Texture* frutaTexture;
-	Texture* monedaTexture;
-	Texture* superMonedaTexture;
-	Texture* paredTexture;
 
 	int anchoPantalla;
 	int altoPantalla;
 public:
-	MapGenerator(int _anchoPantalla, int _altoPantalla);
+	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

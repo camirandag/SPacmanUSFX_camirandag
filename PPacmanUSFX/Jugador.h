@@ -8,9 +8,10 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
-#include "TextureAnimation.h"
+#include "TextureAnimation.h" 
 using namespace std;
-class Pacman: public GameObject
+class Jugador :
+    public GameObject
 {
 private:
 	Tile* tileActual;
@@ -27,8 +28,7 @@ private:
 	TextureAnimation* texturaAnimacion;
 public:
 	//Constructores y destructores
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Pacman();
+	Jugador(Tile * _tile, Texture * _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	//Metodos accesores
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
@@ -38,12 +38,11 @@ public:
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
-	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
+	void setTile(Tile * _tileNuevo);
+	void setTileSiguiente(Tile * _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;// Mover pacman
+	void handleEvent(SDL_Event * event) override;// Mover pacman
 	void update() override;// Renderizar imagen pacman
 	void render() override;//void update();
 };
-

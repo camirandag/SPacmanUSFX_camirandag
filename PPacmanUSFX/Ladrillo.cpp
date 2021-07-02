@@ -1,12 +1,12 @@
-#include "Pared.h"
+#include "Ladrillo.h"
 
-Pared::Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla):
-GameObject(_paredTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla){
-	
+Ladrillo::Ladrillo(Tile* _tile, Texture* _ladrilloTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
+	GameObject(_ladrilloTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
+
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setPared(this);
+		tileActual->setLadrillo(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -17,18 +17,17 @@ GameObject(_paredTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla,
 	}
 };
 
-void Pared::setTile(Tile* _tileNuevo) {
+void Ladrillo::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr)
-		tileActual->setPared(nullptr);
+		tileActual->setLadrillo(nullptr);
 
 	tileActual = _tileNuevo;
 
 	if (tileActual != nullptr) {
-		tileActual->setPared(this);
+		tileActual->setLadrillo(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
 };
-
 

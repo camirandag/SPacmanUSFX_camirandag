@@ -23,6 +23,8 @@
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="Ladrillo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
@@ -30,18 +32,29 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureAnimation.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fantasma.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Ladrillo.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
+    <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="Pared.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileGraph.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Clyde.bmp" />
