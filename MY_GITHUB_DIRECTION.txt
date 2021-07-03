@@ -2,6 +2,5 @@ https://github.com/camirandag/SPacmanUSFX_camirandag.git
 Nombre: Cesar Alvaro Miranda Gutierrez
 Grupo teoria 1
 Grupo laboratorio 1
-LABORATORIO 8
-TRABAJO GRUPAL: Clasico y Galactico 
-Grupo 5:
+LABORATORIO 9
+factory
