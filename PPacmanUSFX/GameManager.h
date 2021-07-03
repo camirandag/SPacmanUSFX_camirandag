@@ -4,10 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
-
 #include <SDL.h>
 #include <SDL_image.h>
-
 #include "Pacman.h"
 #include "Fantasma.h"
 #include "Fruta.h"
@@ -18,10 +16,7 @@
 #include "TextureManager.h"
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
-
 using namespace std;
-
-
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
