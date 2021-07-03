@@ -2,5 +2,5 @@ https://github.com/camirandag/SPacmanUSFX_camirandag.git
 Nombre: Cesar Alvaro Miranda Gutierrez
 Grupo teoria 1
 Grupo laboratorio 1
-LABORATORIO 9
-factory
+LABORATORIO 10
+Prototype me falto un simple detallito miau
