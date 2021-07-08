@@ -3,14 +3,14 @@
 #include <vector>
 #include <SDL.h>
 
-#include "GameObject.h"
+#include "GameActor.h"
 #include "Texture.h"
 #include "TileGraph.h"
 #include "Tile.h"
 
 using namespace std;
 
-enum TIPO_FRUTA {
+enum TipoFruta {
 	TIPO_FRUTA_GUINDA,
 	TIPO_FRUTA_PLATANO,
 	TIPO_FRUTA_NARANJA,
@@ -18,10 +18,10 @@ enum TIPO_FRUTA {
 	TIPO_FRUTA_MAXIMO
 };
 
-class Fruta : public GameObject {
+class Fruta : public GameActor {
 protected:
 
-	TIPO_FRUTA tipoFruta;
+	TipoFruta tipoFruta;
 
 	int tiempoVisible;
 	int tiempoInvisible;
@@ -30,25 +30,24 @@ protected:
 	int contadorTiempoInvisible;
 	int numeroFrutaVisible;
 
-	Tile* tileActual;
+	//GameObjectType returType() { return FRUTA; }
 public:
 
 	//vector<Texture*>frutaTexture;
 	//Constructores y destructores
-	Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY);
-	//~Fruta();
+	Fruta(Tile* _tile, Texture* _texture);
+	~Fruta();
 
 	//Metodos accesores
 	
-	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
+	TipoFruta getTipoFruta() { return tipoFruta; }
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoInvisible() { return tiempoInvisible; }
-	Tile* getTileActual() { return tileActual; }
 
-	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
+	void setTipoFruta(TipoFruta _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setTiempoVisible(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoInvisible(int _tiempoInvisible) { tiempoInvisible = _tiempoInvisible; }
-	void setTileActual(Tile* _tileNuevo);
+	void setTileActual(Tile* _tileNuevo) {};
 
 	// Metodos varios
 
