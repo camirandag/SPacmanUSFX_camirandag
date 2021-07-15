@@ -2,4 +2,4 @@ https://github.com/camirandag/SPacmanUSFX_camirandag.git
 Nombre: Cesar Alvaro Miranda Gutierrez
 Grupo teoria 1
 Grupo laboratorio 1
-LABORATORIO 11: codigo simplificado
+LABORATORIO 12: clase PacmanDecorator implementado

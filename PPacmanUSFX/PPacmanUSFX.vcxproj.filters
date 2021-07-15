@@ -84,6 +84,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="PacmanDecorator.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="GamePanel.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -162,6 +165,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PacmanClasico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PacmanDecorator.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GamePanel.h">

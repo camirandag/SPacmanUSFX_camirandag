@@ -12,10 +12,11 @@
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
 #include "Moneda.h"
+#include "PacmanDecorator.h"
 
 using namespace std;
 
-class Pacman : public GameObject
+class Pacman : public GameObject, public PacmanDecorator
 {
 protected:
 	Tile* tileActual;
@@ -53,13 +54,13 @@ public:
 
 
 
-	int getVelocidad() { return velocidad; }
+	int getVelocidad() { return PacmanDecorator::getVelocidadRapido(); }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	int getEnergia() { return energia; }
 
 
-	void setVelocidad(int _velocidad) { velocidad=_velocidad; }
+	void setVelocidad(int _velocidad) { PacmanDecorator::setVelocidadRapido(_velocidad); }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	void setEnergia(int _energia) { energia = _energia; }
