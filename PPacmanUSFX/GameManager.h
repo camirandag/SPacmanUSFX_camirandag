@@ -16,9 +16,7 @@
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-//#include "FactoryPacmanClasico.h"
-//#include "FactoryPacmanGalactico.h"
-#include "GameActor.h"
+#include "FactoryPacmanClasico.h"
 
 using namespace std;
 
@@ -42,7 +40,7 @@ private:
     list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
-    //Factory* tipoFabrica;
+    Factory* tipoFabrica;
 
     GameManager();
     static GameManager* instancia;

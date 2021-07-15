@@ -51,55 +51,40 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationFrames.cpp">
+    <ClCompile Include="TextureAnimation.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PathFinder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GameActor.cpp">
+    <ClCompile Include="PacmanBase.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GamePawn.cpp">
+    <ClCompile Include="Factory.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GamePawnController.cpp">
+    <ClCompile Include="FactoryPacmanClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GamePawnControllerKey1.cpp">
+    <ClCompile Include="FantasmaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GamePawnControllerKey2.cpp">
+    <ClCompile Include="FrutaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="MsPacman.cpp">
+    <ClCompile Include="MonedaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GUI\GUI.cpp">
+    <ClCompile Include="ParedClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="GUI\Panel.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\GUIComposite.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\Component.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\Label.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\Button.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\Shape.cpp">
+    <ClCompile Include="PacmanClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Modificar.cpp">
+    <ClCompile Include="GamePanel.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -143,7 +128,7 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationFrames.h">
+    <ClInclude Include="TextureAnimation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">
@@ -152,49 +137,34 @@
     <ClInclude Include="PathFinder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectType.h">
+    <ClInclude Include="PacmanBase.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GameActor.h">
+    <ClInclude Include="Factory.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GamePawn.h">
+    <ClInclude Include="FactoryPacmanClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GamePawnController.h">
+    <ClInclude Include="FantasmaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GamePawnControllerKey1.h">
+    <ClInclude Include="FrutaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GamePawnControllerKey2.h">
+    <ClInclude Include="MonedaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MsPacman.h">
+    <ClInclude Include="ParedClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\GUI.h">
+    <ClInclude Include="TipoTexturaPared.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\Panel.h">
+    <ClInclude Include="PacmanClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\GUIComposite.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI\Component.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI\Label.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI\Button.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI\Shape.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Modificar.h">
+    <ClInclude Include="GamePanel.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,59 +4,67 @@
 #include <SDL.h>
 #include <algorithm>
 
-#include "GameActor.h"
+#include "GameObject.h"
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
 
+#include "TextureAnimation.h"
 #include "PathFinder.h"
 #include "Pacman.h"
-#include "GameObjectType.h"
+
 
 using namespace std;
 
-enum GameFantasmaType {
-	FANTASMA_CLASICO,
-	FANTASMA_GALACTICO
-};
-
-
-class Fantasma : public GameActor {
+class Fantasma : public GameObject {
 protected:
 	//Velocidad en eje X y Y
 	
 	//Velocidad a la que mueve el fantasma en cualquier eje
-	GameFantasmaType tipoFantasma;
+	int velocidadPatron;
+
+	int posicionXDestino;
+	int posicionYDestino;
+
+	int incrementoPosicionX;
+	int incrementoPosicionY;
 
 	vector<Tile*> camino;
 	SDL_Point lastPacmanPos;
 
-	//bool tratarDeMover(MoveDirection _direccionNueva);
-	
-public:
-	//virtual Fantasma* clone() = 0;
+	Tile* tileActual;
+	Tile* tileSiguiente;
 
-	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
+	MoveDirection direccionActual;
+	MoveDirection direccionSiguiente;
+
+	TextureAnimation* texturaAnimacion;
+
+	bool tratarDeMover(MoveDirection _direccionNueva);
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _texture);
+	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron);
 	//~Fantasma();
 
 	//Metodos accesores
-	//void reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad);
+
 	
-	void setTileActual(Tile* _tileNuevo);
+	int getVelocidadPatron() { return velocidadPatron; }
+	Tile* getTile() { return tileActual; }
+	Tile* getTileSiguiente() { return tileSiguiente; }
+
+	
+	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+	void setTile(Tile* _tileNuevo);
+	void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
 
 	// Metodos varios
 	
 	// Actualizar datos fantasma
+	virtual void update() override ;
+	void render() override;
 	static bool avoidInPathFinder(Tile* _tile);
 	bool hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint);
-
-	void update();
-	void render();
 	void deleteGameObject() override;
-	void handleEvent(SDL_Event* event) {};
-
 };
